@@ -1,0 +1,41 @@
+<?php
+
+
+$name_IDnumber = array(
+
+	"Astra" => "0",
+	"Rai" => "1",
+	"Star" => "2"
+);
+//print data type and  value of each key in array 
+var_dump($name_IDnumber);
+
+/*
+
+array(3) [
+["Array"] =>
+string(1) "0"
+
+["Rai"] =>
+string(1) "1"
+
+[Star] =>
+string(1) "2"
+
+Notes: An array is a variable that can hold mor ethan one value at a time
+
+
+An array is formally defined asa an indexed collection of data. Each index (also know as the key) of an array is unique and references a corresponding value.
+
+
+
+
+*/
+
+
+
+
+
+?>
+
+

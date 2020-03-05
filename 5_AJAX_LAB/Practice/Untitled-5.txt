@@ -1,0 +1,52 @@
+package thread_communication;
+class Customer{
+    int amount =0;
+
+    public synchronized int withdraw(int amount){
+        System.out.println(Thread.currentThread).getName().+"is
+ 
+ if(flag==0){
+     try{
+         System.out.println("Waiting....");
+         wait();
+
+     }
+     catch(Exception e){}
+ }  
+ this.amount-=amount;
+ System.out.println("Withdraw Completed..");
+ return amount;
+
+ 
+  }
+  public synchronized void deposit(int amount){
+      System.out.println(Thread.currentThread().getName()+" is going to deposit");
+      this.amount+=amount;
+      System.out.println("Deposit Completed");
+      notifyAll();
+      flag=1;
+  }
+}
+
+public class waitNotify{
+    public static void main(string args[]){
+        final customer=new Customer();
+        Thread t1=new Thread(){
+            public void run(){
+                c.withdraw(5000);
+                system.out.println("After withdraw the amount is"+c.amount);
+            }
+        }
+        Thread t2=new Thread(){
+            public void run(){
+                c.deposit(9000);
+                System.out.println("After deposit the amount become"+c.amount);
+            }
+        }
+        t1.setName("Abebe");
+        t2.setName("Helen");
+        t1.start();
+        t2.start();
+        
+    }
+}

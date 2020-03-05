@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Ajax Information API Application</h1>
+        <input type="button" id="search" value="Search">
+        <div id="output">                                    
+
+        </div>
+
+        <script>
+        window.onload=function(){
+            document.getElementById('search').addEventListener('click',showResult);
+        }
+        function showResult(){
+            console.log("clicked");
+            ajaxJS(url,function(response){
+                console.log(xhr)
+                callback('readychange')
+            })
+        }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery Smooth Hover Effect</title>
+<style>
+    .box{
+        width: 500px;
+        height: 300px;
+        border: 5px solid #000;
+    }
+</style>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".box").hover(function(){
+        $(this).find("img").stop(true, true).fadeOut();
+    }, function(){
+        $(this).find("img").stop(true, true).fadeIn();
+    });
+});
+</script>
+</head>
+<body>
+    <div class="box">
+    	<img src="img5.jpg" alt="Sky" height="300" width="500">
+    </div>
+    <p><strong>Note:</strong> Place and remove the mouse pointer over the image to see the effect.</p>
+</body>
+</html>                            

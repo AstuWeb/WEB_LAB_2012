@@ -1,0 +1,155 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        .heading {
+            display: block;
+            width: 100%;
+            border: 1px solid black;
+            color: #fff;
+            padding: 10px;
+        }
+
+        div>p {
+            font-size: 0.8em;
+            color: #111;
+            padding: 20px;
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>AJAX Tester</h1>
+    <div id="output">
+        URL: <input type="text" name="url" value="https://reqres.in/api/users/2"></div>
+    <div>
+        <select name="" id="resource">
+            <option value="Javascript">Javascript</option>
+            <option value="jQuery">jQuery</option>
+            <option value="Axios">Axios</option>
+            <option value="Fetch">Fetch</option>
+
+
+        </select>
+    </div>
+<div>
+    <select name="" id="method">
+        <option value="GET" selected>GET</option>
+        <option value="POST" > POST</option>
+    </select>
+</div>
+<form action="" id="myForm">
+    <input type="text" name="fname" value="Laurance">
+    <input type="number" name="num" value="10"> 
+</form>
+    <div> <input type="button" name="sender" value="make Request" name="send"></div>
+    <script src="jquery.min.js"></script>
+    <script src="axios.js"></script>
+    <script src="fetch.js"></script>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelector('input[name="sender"]').addEventListener('click', makeRequest);
+
+        })
+
+        function makeRequest() {
+            var url = document.querySelector('input[name="url"]').value;
+            var resource = document.querySelector('#resource').value;
+            var method=document.querySelector('#method').value;
+            var temp=document.querySelector('#myForm')
+            var form=new FormData(temp);
+            switch (resource) {
+                case "jQuery":
+                    ajaxJQ(url,method,form);
+                    break;
+                case "Axios":
+                    ajaxAX(url,method,form);
+                    break;
+
+                    case "Fetch":
+                    ajaxFE(url,method,form);
+                    break;
+                default:
+                    ajaxJS(url,method,form);
+            }
+            ajaxJS(url);
+
+
+        }
+        function ajaxJS(url) {
+            console.log("Worked");
+
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // console.log(xhr.responseText);
+                    output(xhr.responseText, xhr.status, 'Javascript  Response');
+                }
+            }
+            xhr.open('GET', url, true);
+            xhr.send();
+        }
+
+
+        function ajaxJQ(url) {
+            console.log("Worked");
+            $.ajax({
+                url: url,
+                type: 'GET',
+                success: function (data) { console.log(data) }
+            }).done(function (response, textStatus, hxr) {
+                output(xhr.responseText, xhr.status, "jQuery Response")
+            })
+
+
+        }
+
+
+        function ajaxAX(url) {
+            console.log("Worked");
+            axios({
+                method:'GET',
+                url:url
+            }).then(function(){
+                console.log(response);
+                output(xhr.responseText, xhr.status, "Axios Response")
+
+            })
+
+        }
+
+
+
+        
+        function ajaxFE(url) {
+            console.log("Worked");
+            fetch(url).then(function(){
+               return response.json
+            }).ctach(function(error){
+              return output(error,'0','Fetch Failed!')
+
+            }).then(function(response){
+                return output(response,'200','Fetch Ajax')
+            })
+
+        }
+        function output(responseText, status, xhr) {
+            // console.log("no connection but output funbction get Called");
+            var output = document.getElementById('#output');
+            responseText = (typeof (responseText) == 'string') ? JSON.parse(responseText) : responseText;
+            console.log(responseText);
+            output.innerHTML = '<div><span class="heading"Response Text</span></p>' + JSON.stringify(responseText) + '</p></div>';
+            output.innerHTML = '<div><span class="heading"Status</span></p>' + JSON.stringify(status) + '</p></div>';
+            output.innerHTML = '<div><span class="heading"Response</span></p>' + JSON.stringify(hxr) + '</p></div>';
+
+
+        }
+    </script>
+</body>
+
+</html>

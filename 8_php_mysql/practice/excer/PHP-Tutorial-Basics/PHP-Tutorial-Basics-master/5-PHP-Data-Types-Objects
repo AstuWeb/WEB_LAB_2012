@@ -1,0 +1,18 @@
+
+<?php
+class Book {
+    function book() {
+        $this->type = "paperback";
+        $this->author = "Michelle Alexander";
+        $this->thoughts = "Stay Woke";
+    }
+}
+// create an object
+$theNewJimCrow = new Book();
+
+// show object properties
+echo $theNewJimCrow->type;
+echo $theNewJimCrow->author;
+echo $theNewJimCrow->thoughts 
+
+?>

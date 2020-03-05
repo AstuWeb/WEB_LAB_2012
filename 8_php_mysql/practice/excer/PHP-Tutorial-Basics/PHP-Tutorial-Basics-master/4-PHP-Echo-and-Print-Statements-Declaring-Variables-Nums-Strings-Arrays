@@ -1,0 +1,14 @@
+
+<?php
+
+//Declaring variable
+
+$name = "Astra Rai";
+$number = '3';
+$list = array('orange', 'apples', 'pears');
+
+//output element in index 1 or array $list, apples
+
+echo $list[1];
+
+?>

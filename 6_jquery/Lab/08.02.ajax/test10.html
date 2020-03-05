@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Avoiding Conflicts when Including jQuery Before other Library</title>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
+<script>
+jQuery(document).ready(function($){
+    // Use full jQuery function name to reference jQuery
+    jQuery("#foo").click(function(){
+        alert("jQuery is working well with prototype.");
+    });
+});
+ 
+// Some prototype framework code
+document.observe("dom:loaded", function(){
+    // The dollar sign here will have the meaning defined in prototype
+    $(bar).observe('click', function(event){
+        alert("Prototype is working well with jQuery.");
+    });
+});
+</script>
+</head>
+<body>
+	<p>Click these buttons to check whether the jQuery and Prototype JavaScript libraries are working without any conflict or not.</p>
+    <button type="button" id="foo">Run jQuery Code</button>
+    <button type="button" id="bar">Run Prototype Code</button>
+</body> 
+</html>                            

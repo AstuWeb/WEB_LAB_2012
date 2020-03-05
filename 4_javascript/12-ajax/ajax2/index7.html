@@ -1,0 +1,102 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JSON</title>
+</head>
+
+<body>
+    <h1>Learn Json</h1>
+    <div id="output">
+        <ul id="taskList">
+
+        </ul>
+    </div>
+<form action="" id="myForm">
+        <input type="text" name="task" placeholder="Add Task">
+        <input type="submit" value="Add New Task">
+
+</form>
+    <script>
+        var output = document.getElementById('output');
+        var taskList = document.querySelector("#taskList");
+        var dataJson = '';
+        document.getElementById("myForm").addEventListener('submit',function(e){
+            e.preventDefault();
+            var tempValue=document.querySelector('input[name="task"]').value;
+            addNewItem({"info":tempValue,"status":false});
+        });
+        window.onload = function () {
+            if (sessionStorage['task'] != null) {
+                dataJson = JSON.parse(sessionStorage['task']);
+            }
+            else {
+                var data = '[{"info":"Cut Z Grass","status":false},{ "info":"Clean Room","status":false},{ "info":"Go to GYM","status":false},{ "info":"Make Dinner","status":false}]';
+                dataJson = JSON.parse(data);
+            }
+            buildCheckboxes(dataJson);
+
+        }
+
+
+function addNewItem(data){
+    addCheckbox(data,dataJson.length);
+    // taskList.innerHTML+='<li>'+data.info+'<input type="checkbox" value="'+dataJson.length+'"></li>';
+dataJson.push(data);
+
+}
+function addCheckbox(data,key){
+var li=document.createElement('li');
+var checkbox=document.createElement('input');
+var text=document.createTextNode(data.info);
+checkbox.type="checkbox";
+checkbox.value=key;
+checkbox.checked=data.status;
+li.appendChild(text);
+li.appendChild(checkbox);
+document.querySelector("#taskList").appendChild(li);
+}
+        function buildCheckboxes(data) {
+            
+            for (var key in data) {
+                addCheckbox(data,key);
+
+                // var status = data[key].status ? 'checked' : '';
+                // var html = '<li>' + data[key].info + '<input type="checkbox" value="' + key + '" ' + status + '></li>';
+                // taskList.innerHTML += html;
+            }
+            addEvents();
+        }
+        // var data='{"tasks":{"Cut Grass":false,"Clean Room":false,"Go to GYM":true,"Make dinner":false}}';
+
+
+
+
+        //     var dataJson=JSON.parse(data);
+
+
+        function addEvents() {
+            var checkbox = document.querySelectorAll('#taskList input[type="checkbox"]');
+            for (var index in checkbox) {
+                checkbox[index].onchange = updateJSON;
+            }
+            // console.log(checkbox);
+        }
+
+        function updateJSON() {
+            var key = event.target.value;
+            console.log(key);
+            dataJson[key].status = event.target.checked;
+
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

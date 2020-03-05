@@ -1,0 +1,17 @@
+<?php
+/*
+Both echo and print statement works exactly the same way except...
+that the print statement can only output one string, and always returns 1
+
+you can use it without parentheses e.g. echo or echo().
+
+if you want to pass more than one parameter to echo ..
+the parameters must not be enclosed within parentheses.
+
+*/
+echo "Code all day; code everyday!";
+print "<br>";
+
+//Displaying HTML code
+echo "<h4>This is a simple heading.</h4>";
+?>

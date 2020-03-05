@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery Set Width and Height of the Elements</title>
+<style>
+    #box{
+        width: 300px;
+        height: 200px;
+        padding: 25px;
+        text-align: justify;
+        border: 10px solid #c6b51a;
+        background: #f0e68c;
+        margin: 15px;
+    }        
+</style>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#box").width(400).height(300);
+    });
+});
+</script>
+</head>
+<body>
+    <div id="box">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Vestibulum id metus ac nisl bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet sagittis. In tincidunt orci sit amet elementum vestibulum. Vivamus fermentum in arcu in aliquam. Quisque aliquam porta odio in fringilla non purus nisld Dapibus nec turpis vel, semper malesuada ant.</div>
+    <button type="button">Set Width and Height</button>
+</body>
+</html>                            

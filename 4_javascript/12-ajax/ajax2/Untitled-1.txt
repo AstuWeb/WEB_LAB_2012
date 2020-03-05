@@ -1,0 +1,12 @@
+ public class runner{
+     public void firstThread() throws InterruptedException{
+
+     }
+     public void secondthread() throws InterruptedException{
+
+     }
+
+     public void finished(){
+         
+     }
+ }

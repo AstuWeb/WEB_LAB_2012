@@ -1,0 +1,46 @@
+package ThreadSynchronization;
+public class SynchronizationExample implements Runnable{
+    private Account acc=new Account();
+    public static void main(String args[]){
+        SynchronizationExample s=new SynchronizationExample()
+        Thread one =new Thread(s);
+        Thread two=new Thread(s);
+        one.setName("Abebe");
+        one.setName("Genet");
+        one.start();
+        two.start();
+    }
+    public void run(){
+        for(int i=0;i<10;i++){
+            withdraw(100);
+            if(acc.getBalance()<0){
+                System.out.println("No mony in the Account");
+            }
+        }
+    }
+    private void makewithdraw(int amount){
+        if(ac.getBalance()>=amount){
+            system.out.println(Thread.currentThread.getName()+" is going to withdraw "+amount);
+
+        
+        try{
+            Thread.sleep(100);
+        }
+        catch(IntrupttedException e){
+            e.printStackTrace();
+        }
+        acc.withdraw(amt);
+        system.out.println(Thread.currentThread.getName+" Completes Withdrawal");
+
+    }
+}
+}
+class Account{
+    private int balance=1000;
+    public int getBalance(){
+        return balance;
+    }
+    public void withdraw(int amount){
+        balance=balance-amount;
+    }
+}

@@ -1,0 +1,78 @@
+package thread_communication;
+
+import java.util.LinkedList;
+import java.util.Random;
+class thread_communication{
+    private LinkedList<Integer>list=new LinkedList<Integer>();
+    private final int LIMIT=10;
+    private Object lock =new Object();
+    public void producer() throws InterupttedException{
+        int value=0;
+        while(true){
+            synchronized(lock){
+                while(list.size==LIMIT){
+             lock.wait();
+                }
+                list.add(value++);
+                lock.notify();
+            }
+        }
+    }
+
+public void consumer() throws InterupttedException{
+    Random random=new Random();
+    while(true){
+        synchronized(lock){
+            while(list.size==0){
+                lock.wait();
+            }
+            System.out.println("List size is :"+list.size);
+            int value=list.removeFirst();
+            System.out.println("and Value is"+value);
+            lock.notify()
+        }
+    }
+    Thread.sleep(random.nextint());
+}
+}
+
+public class App{
+public static void main(String args[]){
+    final thread_communication th=new thread_communication();
+    Thread t1=new Thread(new Runnable(){
+
+public void run(){
+    try{
+        th.producer();
+    }
+    catch(InterruptedException e){
+        e.printstackTrace();
+    }
+}
+
+
+    });
+
+
+     Thread t2=new Thread(new Runnable(){
+
+public void run(){
+    try{
+        th.consumer();
+    }
+    catch(InterruptedException e){
+        e.printstackTrace();
+    }
+}
+
+
+    });
+    t1.start();
+    t2.start)();
+    t1.join();
+    t2.join();
+    
+
+}
+
+}

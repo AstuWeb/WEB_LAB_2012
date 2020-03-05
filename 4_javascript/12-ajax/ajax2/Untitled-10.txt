@@ -1,0 +1,76 @@
+import java.util.*;
+import java.util.EMptyStackException;
+
+public class Stacktest<E>{
+    private E[] elements;
+    private int size=0;
+
+    public Stacktest(int capacity){
+        elements=(E[] ) new Object[capacity];
+    }
+    public void push(E e){
+        elements[size++]=e;
+
+    }
+    public E pop(){
+        if(size==0)
+            throw EmptyStackException();
+            E result=elements[--size];
+            elements[size]=null;
+            return result;
+        
+    }
+
+
+    public void displayStack(){
+        system.ou.println("Displaying stac Contents");
+        for(E e:elements){
+            System.out.println(e);
+        }
+    }
+    public boolean isEmpty(){
+return size==0;
+    }
+
+    public void pushAll(Iterable<? extends E> values){
+        for(E e:values){
+            push(e);
+        }
+    }
+    public void popall(Collection<? super E> values){
+        while(!isEmpty()){
+            values.add(pop());
+        }
+    }
+
+    public static void main(String atgs[]){
+        Stacktest<Number> num=new Stacktest<Number>();
+        num.push(1);
+         num.push(2);
+          num.push(3);
+           num.push(4);
+           num.displayStack();
+
+           Stacktest<Double> doubles=new Stacktest<Double>();
+        doubles.push(1.5);
+         doubles.push(2.33);
+          doubles.push(3.88);
+           doubles.push(4.12);
+           doubles.displayStack();
+
+           Stacktest<String> str=new Stacktest<String>();
+        str.push("Java");
+         str.push("CSE");
+          str.push("Python");
+           str.push("ASTU");
+           str.displayStack();
+
+           Stacktest<Character> chars=new Stacktest<Character>();
+        chars.push('A');
+         chars.push('S');
+          chars.push('T');
+           chars.push('U');
+           chars.displayStack();
+    } 
+}
+

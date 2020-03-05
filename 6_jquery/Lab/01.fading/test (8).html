@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Example of jQuery Slide-Toggle Effects with Different Speeds</title>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<style>
+    p{
+        padding: 15px;
+        background: #B0C4DE;
+    }
+</style>
+<script>
+$(document).ready(function(){
+    // Slide Toggles paragraphs with different speeds
+    $(".toggle-btn").click(function(){
+        $("p.normal").slideToggle();
+        $("p.fast").slideToggle("fast");
+        $("p.slow").slideToggle("slow");
+        $("p.very-fast").slideToggle(50);
+        $("p.very-slow").slideToggle(2000);
+    });
+});
+</script>
+</head>
+<body>
+    <button type="button" class="toggle-btn">Fade Toggle Paragraphs</button>
+    <p class="very-fast">This paragraph will slide up/down with very fast speed.</p>
+    <p class="normal">This paragraph will slide up/down with default speed.</p>
+    <p class="fast">This paragraph will slide up/down with fast speed.</p>
+    <p class="slow">This paragraph will slide up/down with slow speed.</p>
+    <p class="very-slow">This paragraph will slide up/down with very slow speed.</p>
+</body>
+</html>                            

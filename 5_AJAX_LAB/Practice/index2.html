@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+<title>JSON</title>
+    </head>
+    <body>
+    <h1>Learn Json</h1>
+    <div id="output">
+        <ul id="taskList">
+
+        </ul>
+    </div>    
+        <script>
+    var data='{"tasks":{"Cut Grass":false,"Clean Room":false,"Go to GYM":true,"Make dinner":false}}';
+var dataJson=JSON.parse(data);
+var output=document.getElementById('output');
+var taskList=document.querySelector("#taskList");
+for(var key in dataJson.tasks){
+    console.log(key,dataJson.tasks[key]);
+}
+console.log(dataJson);
+        
+        </script>
+    </body>
+</html>

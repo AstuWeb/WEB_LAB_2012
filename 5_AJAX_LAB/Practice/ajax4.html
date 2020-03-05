@@ -1,0 +1,35 @@
+<html>
+<meta charset="utf-8">
+
+<head>
+    <title></title>
+
+</head>
+
+<body>
+    <h1>Learn AJAX</h1>
+    <div id="output">
+        <button id="trigger">Load Joke</button>
+    </div>
+   <script type="text/javascript">
+   var joker=document.querySelector('#trigger');
+   joker.addEventListener('click',loadJoke);
+
+   function loadJoke(){
+       var ajax=new XMLHttpRequest();
+       ajax.onreadystatechange=function(){
+           if(this.readyState==4 && this.status==200){
+               var json=JSON.parse(this.responseText);
+               var html='<div> img src="'+json.icon_url+'">'+json.value+'</div>';
+            document.querySelector('#output').innerHTML=html;
+
+           }
+
+       }
+       ajax.open('GET','http://api.chucknorris.io/jokes/random',true);
+       ajax.send();
+   }
+   </script>
+</body>
+
+</html>

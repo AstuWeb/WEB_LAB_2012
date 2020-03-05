@@ -1,0 +1,43 @@
+package ThreadLifecycle;
+class RunnableDemo implements Runnable{
+    private Thread t1;
+    private String name;
+    RunnableDemo(String name){
+        System.out.println("Creating Thread"+name);
+
+    }
+    public void run(){
+        System.out.println("Running "+name);
+        try{
+            for(int i=0;i<10;i++){
+                System.out.println("Thread"+name+i);
+                try{
+                Thread.sleep(50);
+            }
+            catch(InterruptedException e){
+                System.out.println("Thread"+name+" is Intruppted");
+
+
+            }
+            System.out.println("Thread"+name+" is Exiting");
+
+
+        }
+public void start(){
+    System.out,println("starting "+name);
+    if(t==null){
+        t=new Thread(this,name);
+    }
+}
+    }
+    public class LCycle(){
+        public static void main(String args[]){
+            RunnableDemo r=new RunnableDemo("Thread1");
+            Thread t1=new Thread(r);
+            t1.start();
+            RunnableDemo r2=new RunnableDemo("Thread2");
+            Thread t2=new Thread(R2);
+            t2.start();
+        }
+    }
+}

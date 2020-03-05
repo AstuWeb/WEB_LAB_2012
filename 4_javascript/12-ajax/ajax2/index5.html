@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+<title>JSON</title>
+    </head>
+    <body>
+    <h1>Learn Json</h1>
+    <div id="output">
+        <ul id="taskList">
+
+        </ul>
+    </div>    
+        <script>
+    // var data='{"tasks":{"Cut Grass":false,"Clean Room":false,"Go to GYM":true,"Make dinner":false}}';
+var data='[{"info":"Cut Grass","status":false},{ "info":"Clean Room","status":false},{ "info":"Go to GYM","status":false},{ "info":"Make Dinner","status":false}]';
+console.log(data);
+
+//     var dataJson=JSON.parse(data);
+// var output=document.getElementById('output');
+// var taskList=document.querySelector("#taskList");
+// for(var key in dataJson.tasks){
+//     // console.log(key,dataJson.tasks[key]);
+// var status=!dataJson.tasks[key]?'':'checked';
+//     var html='<li>'+key+'<input type="checkbox" value="'+key+'" '+status+'></li>';
+//     taskList.innerHTML+=html;
+
+// }
+// addEvents();
+// function addEvents(){
+// var checkbox=document.querySelectorAll('#taskList input[type="checkbox"]');
+// for(var index in checkbox){
+//     checkbox[index].onchange=updateJSON;
+// }
+// console.log(checkbox);
+// }
+//         function updateJSON(){
+//             var key=event.target.value;
+//             dataJson.tasks[key]=event.target.checked;
+//             console.log(key,event.target.checked);
+//         }
+
+
+
+
+
+
+
+        </script>
+    </body>
+</html>

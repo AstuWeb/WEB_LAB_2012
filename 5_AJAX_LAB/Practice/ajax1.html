@@ -1,0 +1,38 @@
+<html>
+    <meta charset="utf-8">
+    <head>
+        <title></title>
+
+    </head>
+    <body>
+        <h1>Learn AJAX</h1>
+        <div id="output">
+
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident enim commodi sunt dolore expedita illo adipisci sit nobis inventore harum veritatis, maxime in, animi similique iusto odio. Officia, dolor reprehenderit.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus a eos, repudiandae earum ab consequuntur provident. Cum, voluptatum eligendi. Possimus consequuntur temporibus dolor cupiditate commodi dolorum voluptatum quasi reprehenderit dolore.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni veritatis quibusdam et eaque inventore repudiandae soluta blanditiis exercitationem atque voluptates! Non quas aperiam soluta dicta expedita at nulla, corporis perferendis!
+            
+        </p>
+        <script>
+        var ajax=new XMLHttpRequest();
+        ajax.onreadystatechange=function(){
+            console.log('state changed ',ajax.readyState,ajax.status);
+            if(ajax.readyState==4){
+                if(ajax.status==200){
+                    console.log("Ajax is Ready");
+                    // console.log(ajax.responseText);
+                    var jsonData=JSON.parse(ajax.responseText);
+                    console.log(jsonData);
+                }
+            }
+            else{
+                console.log("AJAX is not Ready");
+            }
+        }
+        ajax.open('GET','https://randomuser.me/api',true);
+        ajax.send();
+        
+        </script>
+    </body>
+</html>

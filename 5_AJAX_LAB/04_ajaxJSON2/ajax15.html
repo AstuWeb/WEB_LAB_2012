@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>AA</title>
+
+    </head>
+
+    <body>
+        <h1>Student</h1>
+        <button id="stud">Get Student</button>
+        <div id="studData"></div>
+        <h1>Class</h1>
+        <button id="class">Get Class</button>
+        <div id="classData"></div>
+
+
+        <script>
+        document.getElementById('stud').addEventListener('click',function(){
+            var xhr=new XMLHttpRequest();
+            xhr.open('GET','student.json',true);
+            xhr.onload=function(){
+                var stud=JSON.parse(this.responseText);
+                var out='';
+                out+='<ul>'+'<li>ID:'+stud.ID+'</li>'+
+                    '<li>FirstName:'+stud.FirstName+'</li>'+
+                    '<li>LastName:'+stud.LastName+'</li>'+
+                    '<li>Department:'+stud.Department+'</li>'+
+                    '<li>Year:'+stud.Year+'</li>'+ 
+                    '<li>GPA:'+stud.GPA+'</li>'+'</ul>';
+                    document.getElementById('studData').innerHTML=out;
+            }
+            xhr.send();
+        })
+
+
+        document.getElementById('class').addEventListener('click',function(){
+            var xhr=new XMLHttpRequest();
+            xhr.open('GET','class.json',true);
+            xhr.onload=function(){
+                var cl=JSON.parse(this.responseText);
+                var out='';
+                for(var i in cl){
+                out+='<ul>'+'<li>ID:'+cl[i].ID+'</li>'+
+                    '<li>FirstName:'+cl[i].FirstName+'</li>'+
+                    '<li>LastName:'+cl[i].LastName+'</li>'+
+                    '<li>Department:'+cl[i].Department+'</li>'+
+                    '<li>Year:'+cl[i].Year+'</li>'+ 
+                    '<li>GPA:'+cl[i].GPA+'</li>'+'</ul>';
+                }
+                    document.getElementById('classData').innerHTML=out;
+            }
+            xhr.send();
+        })
+        </script>
+    </body>
+</html>

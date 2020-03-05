@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Example of jQuery Slide-Up and Slide-Down Effects with Callback</title>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<style>
+    p{
+        padding: 15px;
+        background: #B0C4DE;
+    }
+</style>
+<script>
+$(document).ready(function(){
+    // Display alert message after sliding up paragraphs
+    $(".up-btn").click(function(){
+        $("p").slideUp("slow", function(){
+            // Code to be executed
+            alert("The slide-up effect is completed.");
+        });
+    });
+    
+    // Display alert message after sliding down paragraphs
+    $(".down-btn").click(function(){
+        $("p").slideDown("slow", function(){
+            // Code to be executed
+            alert("The slide-down effect is completed.");
+        });
+    });
+});
+</script>
+</head>
+<body>
+    <button type="button" class="up-btn">Slide Up Paragraphs</button> 
+    <button type="button" class="down-btn">Slide Down Paragraphs</button>
+    <p>This is a paragraph.</p>
+</body>
+</html>                            

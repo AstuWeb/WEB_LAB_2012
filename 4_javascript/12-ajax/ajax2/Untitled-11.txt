@@ -1,0 +1,37 @@
+producerconsumer{
+    private LinkedList<Integer> list=new LinkedList<>();
+    
+    
+    int LIMIT=10;
+
+int values=0;
+    private Object lock=new Object();
+
+public void produce() throws InterruptedException{
+    int values=0;
+    wwhile(true){
+        synchronized(lock){
+            if(list.size==LIMIT ){
+                lock.wait();
+            }
+            list.add(values++);
+            lock.notify();
+
+        }
+    }
+}
+public void consume () throws InterruptedException{
+    Random rand=new Random();
+    while(true){
+        synchronize(lock);
+        if(list.size==0){
+lock.wait()
+        }
+        sout("List is"+list);
+        int value=list.removeFirst();
+        sout("Removed value is "+value);
+        lock.notify();
+    }
+    Thread.sleep(rand.ne)
+}
+    }

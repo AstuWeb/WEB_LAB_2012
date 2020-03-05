@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validator</title>
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="lib/theme-default.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<form>
+    <div class="form-group">
+        <div class="username-group form-group">
+            <label for="username">Username</label>
+            <input id="username" type="text" class="form-control" placeholder="Username..."
+                   data-validation="alphanumeric length"
+                   data-validation-length="3-12"
+                   data-validation-error-msg="The username should only contain 3-12 alphanumeric characters.">
+        </div>
+
+        <div class="password-group form-group">
+            <label for="password">Password</label>
+            <input id="password" type="password" class="form-control" placeholder="Password..."
+                   data-validation="strength length"
+                   data-validation-strength="3"
+                   data-validation-length="6-20"
+                   data-validation-error-msg="Password should only contain 6-20 characters.">
+        </div>
+
+        <div class="email-group form-group">
+            <label for="email">E-mail</label>
+            <input id="email" type="email" class="form-control" placeholder="E-mail..."
+                   data-validation="email">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Year (yyyy-mm-dd):</label>
+            <input data-validation="date" class="form-control" data-validation-format="yyyy-mm-dd">
+        </div>
+
+        <div class="form-group" id="format-text">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-default" id="bold-btn">
+                    <span class="glyphicon glyphicon-bold"></span>
+                </button>
+                <button type="button" class="btn btn-default" id="italic-btn">
+                    <span class="glyphicon glyphicon-italic"></span>
+                </button>
+            </div>
+            <input type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <p>
+                <input type="checkbox"
+                       data-validation="required"
+                       data-validation-error-msg="You have to agree to our terms">
+                I agree to the <a href="#" target="_blank">terms of service</a>
+            </p>
+        </div>
+
+        <div class="button-group">
+            <input type="submit" class="btn btn-default">
+        </div>
+    </div>
+</form>
+</body>
+<script src="lib/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="lib/jquery.form-validator.min.js"></script>
+<script src="app.js"></script>
+</html>

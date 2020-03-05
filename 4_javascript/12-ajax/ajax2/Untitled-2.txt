@@ -1,0 +1,27 @@
+package basics .demo2;
+class Runner implements Runnable{
+    public void run(){
+        for(int i=0;i<10;i++){
+            System.out.println(i);
+            try{
+                Thread.sleep(500);
+
+            }
+            catch(IntrupptedException e){
+                e.printStackTrace();
+
+            }
+
+        }
+    }
+    public class Application(){
+        public static void main(String args[]){
+            Runner r1=new Runner();
+            Runner r2=new Runner();
+            Thread t1=new Thread(r1);
+            Thread t2=new Thread(r2);
+            r1.start()
+            r2.start();
+        }
+    }
+}

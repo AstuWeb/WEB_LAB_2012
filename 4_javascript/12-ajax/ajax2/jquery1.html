@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <h1>Learn Jquery</h1>
+<div id="output">
+    <button id="clickMe">Click Here
+    </button>
+</div>
+<script src="jquery.min.js"></script>
+<script>
+$('#clickMe').click(function(){
+   webData();
+})
+
+function webData(){
+    // console.log("Heyyy")
+    $.ajax({
+        url:'https://jsonplaceholder.typicode.com/posts/1'
+    }).done(output);
+}
+function output(data){
+    console.log(data);
+}
+</script>
+    </body>
+</html>
